@@ -2,6 +2,7 @@ import React from 'react';
 import './index.css'
 
 class CartItem extends React.Component{
+    
     constructor(){
         super();
         this.state = {
@@ -11,6 +12,7 @@ class CartItem extends React.Component{
             img : ""
         }
     }
+
     increaseQuantity = () => {
         console.log('this' , this);
         this.setState( (prevState) => {
@@ -23,6 +25,9 @@ class CartItem extends React.Component{
     decreaseQuantity = () => {
         console.log('this' , this);
         this.setState( (prevState) => {
+            if(prevState.qty == 0){
+                return;
+            }
             return {
                 qty : prevState.qty - 1
             }
