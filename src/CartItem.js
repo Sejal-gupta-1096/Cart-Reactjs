@@ -18,7 +18,7 @@ class CartItem extends React.Component{
                     <div className="cart-item-actions">
                         <img onClick={() => this.props.handleIncreaseQuantity(this.props.product)} className="action-icons" src="https://image.flaticon.com/icons/svg/1828/1828817.svg" />
                         <img onClick={() => this.props.handleDecreaseQuantity(this.props.product)} className="action-icons" src="https://image.flaticon.com/icons/svg/929/929430.svg" />
-                        <img className="action-icons" src="https://image.flaticon.com/icons/svg/3089/3089818.svg" />
+                        <img onClick={() => this.props.handleDeleteProduct(this.props.product.id)} className="action-icons" src="https://image.flaticon.com/icons/svg/3089/3089818.svg" />
                     </div>
                 </div>
             </div>
