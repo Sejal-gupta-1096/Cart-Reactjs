@@ -7,7 +7,7 @@ const Navbar = (props) => {
             <div style={styles.nav}>
                 <div style={styles.cartIconContainer}>
                     <img style={styles.cartIcon} src="https://image.flaticon.com/icons/svg/777/777205.svg" />
-                    <span style={styles.cartCount}>9</span>
+                    <span style={styles.cartCount}>{props.count}</span>
                 </div>
             </div>
         );
@@ -16,7 +16,7 @@ const Navbar = (props) => {
 
 const styles = {
     cartIcon: {
-      height: 40,
+      height: 45,
       marginRight: 20
     },
     nav: {
@@ -35,7 +35,7 @@ const styles = {
       padding: '4px 8px',
       position: 'absolute',
       right: 8,
-      bottom: 20
+      bottom: 30
     }
   };
   
