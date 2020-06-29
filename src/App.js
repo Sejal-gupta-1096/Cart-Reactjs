@@ -12,21 +12,21 @@ class App extends React.Component {
                 price : 10000,
                 title : 'Phone',
                 qty : 20,
-                img : "",
+                img : "https://images.pexels.com/photos/265658/pexels-photo-265658.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
                 id : 1
             } , 
             {
                 price : 2000,
                 title : 'Wath',
                 qty : 50,
-                img : "",
+                img : "https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
                 id : 2
             } , 
             {
                 price : 60000,
                 title : 'Laptop',
                 qty : 10,
-                img : "",
+                img : "https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
                 id : 3
             }
         ]
@@ -79,6 +79,17 @@ class App extends React.Component {
     return count;
   }
 
+  getTotal = () => {
+    let {products} = this.state;
+    let total = 0;
+
+    products.forEach( (item) => {
+      total = total + (item.qty * item.price);
+    })
+
+    return total;
+  }
+
   render(){
     const {products} = this.state
     return (
@@ -90,6 +101,7 @@ class App extends React.Component {
           handleDecreaseQuantity={this.handleDecreaseQuantity} 
           handleDeleteProduct={this.handleDeleteProduct} 
         />
+        <div style={{fontSize:"25px" , padding:"20px"}}>TOTAL PRICE : {this.getTotal()}</div>
       </div>
     );
   }
