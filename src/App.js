@@ -39,7 +39,7 @@ class App extends React.Component {
     if(product.qty == 0){
       return;
     }
-    
+
     let docRef = this.db.collection('products').doc(product.id);
     console.log(docRef);
 
@@ -54,13 +54,15 @@ class App extends React.Component {
 
   handleDeleteProduct = (id) => {
       let {products} = this.state;
-      let items = products.filter((item) => {
-          return item.id !== id
-      });
       
-      this.setState({
-          products : items
-      });
+      let docRef = this.db.collection('products').doc(id);
+      console.log(docRef);
+
+      docRef.delete().then( () => {
+        console.log("Deleted Successfully")
+      }).catch( (error) => {
+        console.log("Error" , error);
+      })
   }
 
   getCount = () => {
@@ -109,7 +111,7 @@ class App extends React.Component {
     this.db
     .collection('products')
     .add({
-      img : '',
+      img : 'https://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg',
       price : 50000,
       title : 'Laptop',
       qty : 10
